@@ -12,10 +12,14 @@ router.get('', function (req, res) {
 })
 
 //GET / api / users /: id
-router.get('', function (req, res) {
-    let oneUser = UserService.search(req.params.id) //??????
+router.get('/:id', function (req, res) {
+    let oneUser = UserService.search(
+        function (element) {
+            if (element.id == req.params.id) {
+                return element
+            }
+        })
     res.send(oneUser)
-    console.log(req.params.id)
 })
 
 //POST /api/users
@@ -26,15 +30,23 @@ router.post('', function (req, res) {
 
 
 // //PUT /api/users /: id
-router.put('', function (req, res) {
-    let updUser = UserService.updateUsers(req.body) //??????
+router.put('/:id', function (req, res) {
+
+    let oneUser = UserService.search(
+        function (element) {
+            if (element.id == req.params.id) {
+                return element
+            }
+        })
+    let updUser = UserService.updateUsers(req.params.id, oneUser)
     res.send(updUser)
-    console.log(req.body)
+    console.log(updUser)
+
 })
 
 
 //DELETE /api/users/:id
-router.delete('/api/users/:id', function (req, res) {
+router.delete('/:id', function (req, res) {
     let dellUser = UserService.dellUsers(req.params.id)
     res.send(dellUser)
 })
