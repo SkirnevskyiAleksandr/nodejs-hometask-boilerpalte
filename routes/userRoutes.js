@@ -8,7 +8,6 @@ const router = Router();
 router.get('', function (req, res) {
     let allUsers = UserService.getAllUsers()
     res.send(allUsers)
-    console.log("//GET /api/users")
 })
 
 //GET / api / users /: id
@@ -29,7 +28,7 @@ router.post('', function (req, res) {
 })
 
 
-// //PUT /api/users /: id
+//PUT /api/users /: id
 router.put('/:id', function (req, res) {
 
     let oneUser = UserService.search(
@@ -40,7 +39,6 @@ router.put('/:id', function (req, res) {
         })
     let updUser = UserService.updateUsers(req.params.id, oneUser)
     res.send(updUser)
-    console.log(updUser)
 
 })
 
