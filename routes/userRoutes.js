@@ -22,7 +22,8 @@ router.get('/:id', function (req, res) {
 })
 
 //POST /api/users
-router.post('', function (req, res) {
+router.post('', createUserValid, function (req, res) {
+
     let addUser = UserService.addUser(req.body)
     res.send(addUser)
 })

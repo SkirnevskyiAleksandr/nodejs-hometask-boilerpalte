@@ -11,7 +11,7 @@ router.get('', function (req, res) {
 })
 
 //GET / api / fighters /: id
-router.get('/:id', function (req, res) {
+router.get('', function (req, res) {
     let oneFighter = FighterService.search(
         function (element) {
             if (element.id == req.params.id) {

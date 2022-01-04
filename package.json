@@ -9,6 +9,7 @@
     "start": "node index.js",
     "build-front": "cd client | ls",
     "feedback": "node ./feedback/index.js",
+    "dev":"nodemon index.js",
     "generate": "npm run test-local | npm run feedback"
   },
   "repository": {

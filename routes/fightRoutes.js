@@ -5,12 +5,12 @@ const { responseMiddleware } = require('../middlewares/response.middleware');
 
 
 const router = Router();
-router.get('', function (req, res) {
+router.get('/api/fights', function (req, res) {
     let allFights = FightService.getAllFights()
     res.send(allFights)
 })
 
-router.post('', function (req, res) {
+router.post('/api/fights', function (req, res) {
     let addFight = FightService.addFight(req.body)
     res.send(addFight)
 })
