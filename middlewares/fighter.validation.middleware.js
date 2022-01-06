@@ -1,6 +1,8 @@
 const { fighter } = require('../models/fighter');
 
 const createFighterValid = (req, res, next) => {
+    const { body } = reg
+
     // TODO: Implement validatior for fighter entity during creation
     next();
 }

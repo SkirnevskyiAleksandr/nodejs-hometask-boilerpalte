@@ -30,7 +30,7 @@ router.post('', createUserValid, function (req, res) {
 
 
 //PUT /api/users /: id
-router.put('/:id', function (req, res) {
+router.put('/:id', updateUserValid, function (req, res) {
 
     let oneUser = UserService.search(
         function (element) {
